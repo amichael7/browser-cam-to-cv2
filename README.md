@@ -68,11 +68,11 @@ The program uses collects a media stream using HTML5.  The video stream is then 
 
 Once the encoded image arrives at the server, it is then parsed as an array using Node.JS's [Buffer object](https://nodejs.org/api/buffer.html) (see also [StackOverflow](https://stackoverflow.com/questions/8609289)).  This array is then passed to an open Python process over TCP using the ZeroMQ message broker.  The Python process converts the unsigned 32-bit integer array to an unsigned 8-bit integer array which is then converted to a 3-dimensional numpy array and passed to OpenCV where it is displayed on screen.
 
-![Phone Screen](photos/phone-screen.jpg)
+![Phone Screen](/photos/phone-screen.jpg)
 
 The external device captures video using the browser's built in tools, and...
 
-![Desktop Screen](photos/desktop-screen.jpg)
+![Desktop Screen](/photos/desktop-screen.jpg)
 
 Sends the photo stream to the server where it is sent to the Python process.
 
