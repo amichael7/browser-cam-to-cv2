@@ -1,3 +1,4 @@
+.gitignore
 /src/models/__pycache__
 /src/models/driving.mp4
 /node_modules
