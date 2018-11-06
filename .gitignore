@@ -2,5 +2,6 @@
 /src/models/driving.mp4
 /node_modules
 /sslcert/*
+/photos
 package-lock.json
 _config.json

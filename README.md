@@ -25,9 +25,7 @@ The server then sends the data it's gathering over to an instance of Python wher
 1. Add a __config.json__ file.
 	* The file should contain the address and the file should take the format:
 	```
-	[
-		{"address":"XXX.XXX.XX.XXX"}
-	]
+	{"address":"XXX.XXX.XX.XXX"}
 	```
 
 1. Start the python instance

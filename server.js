@@ -25,10 +25,12 @@ const port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
 
 var config = JSON.parse(fs.readFileSync('_config.json', 'utf8'));
+var server;
 var wss;
 var SECURE;
 var address;
 
+console.log(config.address)
 if(config.address && config.address != ""){
 	SECURE = true;
 	address = config.address;
@@ -37,18 +39,21 @@ if(config.address && config.address != ""){
 }
 
 if (SECURE) {
+	var privateKey;
+	var certificate;
 	try {
-		var privateKey  = fs.readFileSync('sslcert/private.pem', 'utf8');
-		var certificate = fs.readFileSync('sslcert/public.pem', 'utf8');
+		privateKey  = fs.readFileSync('sslcert/private.pem', 'utf8');
+		certificate = fs.readFileSync('sslcert/public.pem', 'utf8');
 	} catch(e) {
 		throw {error:'there was a problem with the SSL certificate, see README on creating a certificate'}
 	}
+
 	var credentials = {key: privateKey, cert: certificate};
-	var server = https.createServer(credentials, app);
+	server = https.createServer(credentials, app);
 
 	wss = new WebSocket.Server({server: server /*, path: "/hereIsWS"*/});
 } else {
-	var server = http.createServer(app)
+	server = http.createServer(app)
 	wss = new WebSocket.Server({server: server});
 }
 
