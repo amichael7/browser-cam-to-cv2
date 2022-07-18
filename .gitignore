@@ -1,6 +1,7 @@
-/src/models/__pycache__
-/src/models/driving.mp4
-/node_modules
-/sslcert/*
+**/__pycache__
+node_modules
 package-lock.json
-_config.json
+**/*.mp4
+**/*.webm
+.env
+ssl
